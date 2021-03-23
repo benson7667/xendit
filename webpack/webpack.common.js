@@ -21,12 +21,11 @@ module.exports = {
         loader: 'babel-loader',
       },
       {
-        test: /\.(css)$/,
-        use: [MiniCssExtractPlugin.loader, 'postcss-loader', 'css-loader'],
-      },
-      {
-        test: /\.(scss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        test: /\.(woff(2)?|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[contenthash].[ext]',
+        },
       },
     ],
   },

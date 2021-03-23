@@ -10,4 +10,16 @@ module.exports = merge(common, {
     historyApiFallback: true,
     port: 3000,
   },
+  module: {
+    rules: [
+      {
+        test: /\.(css)$/,
+        use: ['style-loader', 'postcss-loader', 'css-loader'],
+      },
+      {
+        test: /\.(scss)$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
+      },
+    ],
+  },
 })
