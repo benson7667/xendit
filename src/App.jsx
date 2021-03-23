@@ -1,10 +1,10 @@
-import { Navbar } from '../src/components'
+import { Navbar, SearchBar } from '../src/components'
 
 const App = () => {
   return (
     <>
       <Navbar />
-      <div>Hello World</div>
+      <SearchBar />
     </>
   )
 }
