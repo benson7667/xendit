@@ -20,14 +20,6 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
-      {
-        test: /\.(css)$/,
-        use: [MiniCssExtractPlugin.loader, 'postcss-loader', 'css-loader'],
-      },
-      {
-        test: /\.(scss)$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
     ],
   },
   plugins: [
