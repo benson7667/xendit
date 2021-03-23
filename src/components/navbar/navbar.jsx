@@ -1,12 +1,37 @@
+import { useRouteMatch } from 'react-router-dom'
+import cx from 'classnames'
+import { Link } from '../../components'
+import routesName from '../../constants/routesName'
 import './navbar.scss'
 
 const Navbar = () => {
+  const getLinkActiveState = (pathName) => {
+    return useRouteMatch({
+      path: pathName,
+      strict: true,
+      sensitive: true,
+      exact: true,
+    })
+  }
+
   return (
     <div className='navbar__container'>
       <ul className='navbar__menus'>
-        <li className='navbar__menus-item active'>HOME</li>
-        <li className='navbar__menus-item'>FAVOURITE</li>
-        <li className='navbar__menus-item'>NEWSLETTER</li>
+        <Link
+          className={cx({ 'navbar__menus-item': true, active: getLinkActiveState(routesName.HOME) })}
+          label='Home'
+          to={routesName.HOME}
+        />
+        <Link
+          className={cx({ 'navbar__menus-item': true, active: getLinkActiveState(routesName.FAVOURITE) })}
+          label='Favourites'
+          to={routesName.FAVOURITE}
+        />
+        <Link
+          className={cx({ 'navbar__menus-item': true, active: getLinkActiveState(routesName.NEWSLETTER) })}
+          label='Newsletter'
+          to={routesName.NEWSLETTER}
+        />
       </ul>
 
       <div className='navbar__auth'>
