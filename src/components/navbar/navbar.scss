@@ -28,6 +28,11 @@
                 filter: opacity(0.6);
             }
         }
+
+        &-item.active {
+            color: $black;
+            border-bottom: 4px solid $black;
+        }
     }
 
     &__auth {
