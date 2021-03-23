@@ -13,7 +13,7 @@ module.exports = merge(common, {
     minimizer: [
       new OptimizeCssAssetsPlugin(), // Minimize CSS in production
       new TerserPlugin({
-          terserOptions: { sourceMap: true }
+        terserOptions: { sourceMap: true }
       }),
     ],
   },
