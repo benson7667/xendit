@@ -35,8 +35,7 @@ const Navbar = () => {
       </ul>
 
       <div className='navbar__auth'>
-        <div className='navbar__auth-avatar'></div>
-        <div className='navbar__auth-name'>LOGIN</div>
+        <Link className='navbar__auth-name' label='LOGIN' to={routesName.LOGIN} />
       </div>
 
       {/* <div className='navbar__auth'>
