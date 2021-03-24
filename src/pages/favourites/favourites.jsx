@@ -1,10 +1,10 @@
-import { Navbar } from '../../components'
+import { Navbar, UniversityCard } from '../../components'
 
 const Favourites = () => {
   return (
     <>
       <Navbar />
-      <div>Favourites Page</div>
+      <UniversityCard country='Singapore' name='Singapore NTU' website='http://www.middlebury.edu/' />
     </>
   )
 }

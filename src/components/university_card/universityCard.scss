@@ -1,0 +1,43 @@
+@import '../../assets/styles/colors.scss';
+
+.unicard {
+    &__container {
+        cursor: pointer;
+        position: relative;
+        border-radius: 30px;
+        border: 3px solid $accent-color;
+        max-width: 300px;
+        overflow: hidden;
+        background-color: $white;
+        box-shadow: rgb(0 0 0 / 8%) 0px 4px 8px;
+        transition: all 0.2s ease-in-out 0s;
+
+        &:hover {
+            transition: all 0.2s ease-in-out 0s;
+            transform: translateY(-3px);
+            box-shadow: rgb(0 0 0 / 10%) 0px 8px 24px;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__body {
+        padding: 20px;
+
+        &-name {
+            margin: 0 0 10px
+        }
+    }
+
+    &__footer {
+        padding: 15px 20px 15px;
+        background-color: $accent-color;
+        color: $white;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+}
