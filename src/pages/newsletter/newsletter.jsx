@@ -1,11 +1,11 @@
-import { Navbar } from '../../components'
+import { Container, Navbar } from '../../components'
 
 const NewsLetter = () => {
   return (
-    <>
+    <Container>
       <Navbar />
       <div>NewsLetter Page</div>
-    </>
+    </Container>
   )
 }
 

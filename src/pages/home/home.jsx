@@ -1,4 +1,4 @@
-import { Navbar, SearchBar } from '../../components'
+import { Container, Navbar, SearchBar } from '../../components'
 import { constructQueryParams } from '../../utils/url'
 import routesName from '../../constants/routesName'
 
@@ -14,10 +14,10 @@ const App = (props) => {
   }
 
   return (
-    <>
+    <Container>
       <Navbar />
       <SearchBar onSearch={handleOnSearch} />
-    </>
+    </Container>
   )
 }
 
