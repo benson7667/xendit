@@ -1,8 +1,8 @@
 import { ActionTypes } from '../actions/search'
 
 const defaultState = {
-  isLoadingSearch: false,
-  searchResult: [],
+  isLoading: false,
+  results: [],
   error: null,
 }
 
@@ -11,20 +11,20 @@ const userReducer = (state = defaultState, action) => {
     case ActionTypes.GET_SEARCH_REQUEST:
       return {
         ...state,
-        isLoadingSearch: true,
+        isLoading: true,
       }
 
     case ActionTypes.GET_SEARCH_RESPONSE:
       return {
         ...state,
-        isLoadingSearch: false,
-        searchResult: [...state.searchResult, ...action.payload],
+        isLoading: false,
+        results: [...state.results, ...action.payload],
       }
 
     case ActionTypes.GET_SEARCH_ERROR:
       return {
         ...state,
-        isLoadingSearch: false,
+        isLoading: false,
         error: action.error,
       }
 

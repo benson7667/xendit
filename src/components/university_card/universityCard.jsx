@@ -1,4 +1,4 @@
-import { array, string } from 'prop-types'
+import { string } from 'prop-types'
 import CircleArrowRightWhite from '../../assets/icons/circle-arrow-right-white.svg'
 import './universityCard.scss'
 
@@ -23,7 +23,7 @@ const UniversityCard = (props) => {
 UniversityCard.propTypes = {
   country: string.isRequired,
   name: string.isRequired,
-  website: array.isRequired,
+  website: string.isRequired,
 }
 
 export default UniversityCard
