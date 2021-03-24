@@ -1,0 +1,21 @@
+@import '../../assets/styles/colors.scss';
+
+.newsletter {
+    &__container {
+        max-width: 700px;
+        margin: 0 auto;
+        margin-top: 100px;
+        border: 3px solid $accent-color;
+        padding: 0px 30px 40px;
+        border-radius: 20px;
+        box-shadow: rgb(0 0 0 / 8%) 0px 4px 8px;
+    }
+
+    &__info {
+        display: flex;
+
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+        }
+    }
+}

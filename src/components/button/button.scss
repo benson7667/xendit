@@ -1,0 +1,20 @@
+@import '../../assets/styles/colors.scss';
+
+.app {
+    &__button {
+        cursor: pointer;
+        border: none;
+        padding: 15px 20px;
+        font-size: 16px;
+        outline: none;
+        background-color: $accent-color;
+        color: $white;
+        border-radius: 8px;
+        transition: filter 0.3s ease-in-out;
+
+        &:hover {
+            transition: filter 0.3s ease-in-out;
+            filter: brightness(1.1);
+        }
+    }
+}

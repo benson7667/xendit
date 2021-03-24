@@ -1,0 +1,13 @@
+@import '../../assets/styles/colors.scss';
+
+.app {
+    &__input {
+        border: 2px solid $accent-color;
+        outline: none;
+        width: 100%;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 8px;
+        // margin-bottom: 8px;
+    }
+}
