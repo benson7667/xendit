@@ -1,20 +1,13 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { HomePage, FavouritesPage, NewsLetterPage, NotFoundPage, SearchResultPage } from '../src/pages'
-import routesName from './constants/routesName'
+import { Provider } from 'react-redux'
+import AppRoutes from './AppRoutes'
+import store from './store'
+import '../src/assets/styles/index.scss'
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Switch>
-          <Route component={HomePage} exact path={routesName.HOME} />
-          <Route component={FavouritesPage} exact path={routesName.FAVOURITE} />
-          <Route component={NewsLetterPage} exact path={routesName.NEWSLETTER} />
-          <Route component={SearchResultPage} exact path={routesName.SEARCH_RESULT} />
-          <Route component={NotFoundPage} />
-        </Switch>
-      </Router>
-    </>
+    <Provider store={store}>
+      <AppRoutes />
+    </Provider>
   )
 }
 

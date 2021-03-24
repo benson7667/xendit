@@ -6,7 +6,7 @@ const App = (props) => {
   const { history } = props
 
   const handleOnSearch = (value) => {
-    const queryString = constructQueryParams({ q: value })
+    const queryString = constructQueryParams({ name: value })
     history.push({
       pathname: routesName.SEARCH_RESULT,
       search: queryString,
