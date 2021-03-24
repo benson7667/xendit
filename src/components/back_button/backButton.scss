@@ -1,0 +1,33 @@
+@import '../../assets/styles/colors.scss';
+
+.app {
+    &__back-button {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border: 3px solid $accent-color;
+        padding: 12px 20px;
+        outline: none;
+        background-color: $white;
+        border-radius: 30px;
+        color: $dark-gray;
+        font-weight: bold;
+        font-size: 18px;
+        transition: filter 0.4s ease-out;
+
+        &:hover {
+            transition: filter 0.4s ease-in;
+            filter: brightness(0.8)
+        }
+
+        &::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-right: 10px;
+            background: url('../../assets/icons/arrow-left-color-accent.svg') no-repeat;
+        }
+    }
+}

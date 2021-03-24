@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Container, Navbar, UniversityCard } from '../../components'
+import { BackButton, Container, Navbar, UniversityCard } from '../../components'
 import { parseQueryString } from '../../utils/url'
 import { Actions } from '../../actions/search'
 import './styles.scss'
@@ -46,6 +46,7 @@ const SearchResult = (props) => {
   return (
     <Container>
       <Navbar />
+      <BackButton label='Back to search' />
       {renderContent()}
     </Container>
   )
