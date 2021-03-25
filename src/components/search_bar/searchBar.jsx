@@ -9,7 +9,7 @@ const SearchBar = (props) => {
   const handleOnChange = (e) => setValue(e.target.value)
   const handleOnSearch = (e) => {
     e.preventDefault()
-    if (value.trim() === '') return
+    if (value.trim().length < 4) return
     onSearch(value)
   }
 
@@ -28,6 +28,7 @@ const SearchBar = (props) => {
             <img className='searchbar__button-icon' src={ArrowRightSvg} />
           </button>
         </div>
+        <p className='searchbar__hint'>Please input at least 4 character</p>
       </div>
     </form>
   )

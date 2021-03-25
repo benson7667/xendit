@@ -37,7 +37,7 @@ const SearchResult = (props) => {
     return (
       <div className='search-result__grid'>
         {results.map((item, index) => (
-          <UniversityCard country={item.country} key={index} name={item.name} website={item.web_pages[0]} />
+          <UniversityCard key={index} university={item} />
         ))}
       </div>
     )

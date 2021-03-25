@@ -7,7 +7,7 @@ const userInfo = storage.get(XENDIT_USER_INFO) || {}
 const defaultState = {
   isLoading: false,
   isUserAuthenticated: !!token,
-  userInfo: userInfo,
+  userInfo: { ...JSON.parse(userInfo), token },
   authError: null,
 }
 
