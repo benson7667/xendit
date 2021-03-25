@@ -1,4 +1,6 @@
 const routesName = {
+  LOGIN: '/login',
+  REGISTER: '/register',
   HOME: '/',
   FAVOURITE: '/favourites',
   NEWSLETTER: '/newsletter',

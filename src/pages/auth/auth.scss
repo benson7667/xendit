@@ -1,0 +1,35 @@
+@import '../../assets/styles/colors.scss';
+
+.auth {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        margin-top: 50px;
+    }
+
+    &__wrapper {
+        border: 3px solid $accent-color;
+        min-width: 300px;
+        max-width: 600px;
+        width: 100%;
+        border-radius: 10px;
+        padding: 40px 20px;
+    }
+
+    &__form {
+        width: 100%;
+    }
+
+    &__link {
+        font-weight: bold;
+        transition: all 0.4s ease-out;
+        margin-top: 10px;
+
+        &:hover {
+            transition: all 0.4s ease-in;
+            color: $black;
+        }
+    }
+}

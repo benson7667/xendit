@@ -1,0 +1,26 @@
+@import '../../assets/styles/colors.scss';
+
+.alert {
+    &__container {
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    &__container.danger {
+        border: 2px solid $danger-normal;
+        background-color: $danger-light;
+        color: $danger-dark;
+    }
+
+    &__container.success {
+        border: 2px solid $success-normal;
+        background-color: $success-light;
+        color: $success-dark;
+    }
+
+    &__container.warn {
+        border: 2px solid $warn-normal;
+        background-color: $warn-light;
+        color: $warn-dark;
+    }
+}
