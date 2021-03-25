@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import {
   LoginPage,
@@ -12,12 +13,14 @@ import routesName from './constants/routesName'
 import PublicRoute from './router/publicRoute'
 
 const App = () => {
+  const isUserAuthenticated = useSelector((state) => state.auth.isUserAuthenticated)
+
   return (
     <>
       <Router>
         <Switch>
-          <PublicRoute authed={false} component={LoginPage} exact path={routesName.LOGIN} />
-          <PublicRoute authed={false} component={RegisterPage} exact path={routesName.REGISTER} />
+          <PublicRoute authed={isUserAuthenticated} component={LoginPage} exact path={routesName.LOGIN} />
+          <PublicRoute authed={isUserAuthenticated} component={RegisterPage} exact path={routesName.REGISTER} />
 
           <Route component={HomePage} exact path={routesName.HOME} />
           <Route component={FavouritesPage} exact path={routesName.FAVOURITE} />

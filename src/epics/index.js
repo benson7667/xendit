@@ -1,5 +1,6 @@
 import { combineEpics } from 'redux-observable'
 import * as searchEpics from './searchEpics'
+import * as authEpics from './authEpics'
 
 const combineEpicFunctions = (epics) =>
   epics.reduce((arr, epic) => {
@@ -7,6 +8,6 @@ const combineEpicFunctions = (epics) =>
     return arr.concat(keys.map((key) => epic[key]))
   }, [])
 
-const epics = combineEpicFunctions([searchEpics])
+const epics = combineEpicFunctions([authEpics, searchEpics])
 
 export const rootEpic = combineEpics(...epics)

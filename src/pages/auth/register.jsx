@@ -1,17 +1,24 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Container, Button, Input } from '../../components'
 import routesName from '../../constants/routesName'
+import { Actions } from '../../actions/auth'
 import './auth.scss'
 
 const Register = () => {
   const [values, setValues] = useState({ email: '', password: '', cPassword: '' })
-
   const { push } = useHistory()
+  const dispatch = useDispatch()
 
   const handleOnChange = (field) => (e) => setValues({ ...values, [field]: e.target.value })
 
-  const handleRegister = () => {}
+  const handleRegister = () => {
+    // TODO: validation
+
+    const { email, password } = values
+    dispatch(Actions.REGISTER_REQUEST({ email, password }))
+  }
 
   const goToLogin = () => push(routesName.LOGIN)
 

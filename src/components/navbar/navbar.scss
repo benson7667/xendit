@@ -37,10 +37,16 @@
     &__auth {
         cursor: pointer;
         padding: 20px 0;
+        display: flex;
 
         &:hover {
             transition: filter 0.4s ease-in-out;
             filter: opacity(0.6);
         }
+
+        &-name {
+            margin-right: 8px;
+        }
+
     }
 }

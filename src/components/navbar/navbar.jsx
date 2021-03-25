@@ -1,10 +1,18 @@
 import { useRouteMatch } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import cx from 'classnames'
 import { Link } from '../../components'
 import routesName from '../../constants/routesName'
+import { Actions } from '../../actions/auth'
+import LogoutSvg from '../../assets/icons/logout-dark-gray.svg'
 import './navbar.scss'
 
 const Navbar = () => {
+  const dispatch = useDispatch()
+
+  const isUserAuthenticated = useSelector((state) => state.auth.isUserAuthenticated)
+  const userInfo = useSelector((state) => state.auth.userInfo)
+
   const getLinkActiveState = (pathName) => {
     return useRouteMatch({
       path: pathName,
@@ -13,6 +21,8 @@ const Navbar = () => {
       exact: true,
     })
   }
+
+  const handleLogout = () => dispatch(Actions.LOGOUT_REQUEST())
 
   return (
     <div className='navbar__container'>
@@ -34,13 +44,18 @@ const Navbar = () => {
         />
       </ul>
 
-      <div className='navbar__auth'>
-        <Link className='navbar__auth-name' label='LOGIN' to={routesName.LOGIN} />
-      </div>
+      {isUserAuthenticated && (
+        <div className='navbar__auth' onClick={handleLogout}>
+          <span className='navbar__auth-name'>{userInfo.email}</span>
+          <img src={LogoutSvg} />
+        </div>
+      )}
 
-      {/* <div className='navbar__auth'>
-                <div className='navbar__auth-login'>LOGIN</div>
-            </div> */}
+      {!isUserAuthenticated && (
+        <div className='navbar__auth'>
+          <Link className='navbar__auth-login' label='Login / Register' to={routesName.LOGIN} />
+        </div>
+      )}
     </div>
   )
 }
