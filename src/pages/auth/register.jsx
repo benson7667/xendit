@@ -13,7 +13,8 @@ const Register = () => {
 
   const handleOnChange = (field) => (e) => setValues({ ...values, [field]: e.target.value })
 
-  const handleRegister = () => {
+  const handleRegister = (e) => {
+    e.preventDefault()
     // TODO: validation
 
     const { email, password } = values
@@ -30,7 +31,7 @@ const Register = () => {
 
       <div className='auth__container'>
         <div className='auth__wrapper'>
-          <div className='login__container'>
+          <form className='auth__form' onSubmit={handleRegister}>
             <Input
               onChange={handleOnChange('email')}
               placeholder='Email address'
@@ -51,7 +52,7 @@ const Register = () => {
               value={values['cPassword']}
             />
             <Button onClick={handleRegister} style={{ width: '100%', marginTop: '20px' }} value='Register' />
-          </div>
+          </form>
         </div>
       </div>
     </>
