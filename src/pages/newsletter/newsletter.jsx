@@ -68,8 +68,13 @@ const NewsLetter = () => {
           </p>
           <p>Instead, I will modify it by log out the last 10 user who have submitted the newsletter</p>
           <div className='newsletter__info'>
-            <Input onChange={handleOnChange} placeholder='Email address' style={{ marginRight: '5px' }} value={email} />
-            <Button onClick={handleOnClick} value='Subscribe' />
+            <Input
+              onChange={handleOnChange}
+              placeholder='Email address'
+              style={{ marginRight: '5px', marginBottom: '5px' }}
+              value={email}
+            />
+            <Button onClick={handleOnClick} style={{ marginBottom: '5px' }} value='Subscribe' />
           </div>
 
           {validationErr && <Alert color='danger' message={validationErr} style={{ marginTop: '5px' }} />}

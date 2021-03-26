@@ -9,6 +9,7 @@ const Favourites = () => {
 
   const isLoading = useSelector((state) => state.favorites.isLoadingGetAllFavorite)
   const favoriteList = useSelector((state) => state.favorites.favoriteList)
+  const isUserAuthenticated = useSelector((state) => state.auth.isUserAuthenticated)
 
   useEffect(() => {
     dispatch(Actions.GET_ALL_FAVORITE_REQUEST())
@@ -24,9 +25,11 @@ const Favourites = () => {
   }
 
   const renderContent = () => {
-    if (isLoading) return <h1>Loading...</h1>
+    if (!isUserAuthenticated) return <p>Pleae login to view your favorite list</p>
 
-    if (!isLoading && !favoriteList.length) return <h1>YOU HAVENT ADD ANY FAVOURITE UNIVERSITY</h1>
+    if (isLoading) return <p>Loading...</p>
+
+    if (!isLoading && !favoriteList.length) return <p>You do not have any favorite university...</p>
 
     if (!isLoading && favoriteList.length)
       return (
