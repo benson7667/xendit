@@ -2,12 +2,12 @@ import { ActionTypes } from '../actions/auth'
 import storage, { XENDIT_JWT_TOKEN, XENDIT_USER_INFO } from '../utils/storage'
 
 const token = storage.get(XENDIT_JWT_TOKEN)
-const userInfo = storage.get(XENDIT_USER_INFO) || {}
+const userInfo = storage.get(XENDIT_USER_INFO) || null
 
 const defaultState = {
   isLoading: false,
   isUserAuthenticated: !!token,
-  userInfo: userInfo,
+  userInfo: userInfo ? { ...JSON.parse(userInfo), token } : {},
   authError: null,
 }
 

@@ -18,7 +18,7 @@ const userReducer = (state = defaultState, action) => {
       return {
         ...state,
         isLoading: false,
-        results: [...state.results, ...action.payload],
+        results: action.payload,
       }
 
     case ActionTypes.GET_SEARCH_ERROR:
