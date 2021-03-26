@@ -1,5 +1,11 @@
 # xendit assignment
 
+## Hosting URL
+You can also access the application via https://naughty-torvalds-fd55f3.netlify.app/ <br>
+However, since the apis is serve on `http` but the site is serve on `https`. Chrome will block the apis call due to `mixed content` issue.
+
+In order to allow the application to work properly, you may follow the guide here https://stackoverflow.com/a/24434461 to temporary enable `insecure content` and refresh the site.
+
 ## Getting Started
 
 ### Prerequisites
