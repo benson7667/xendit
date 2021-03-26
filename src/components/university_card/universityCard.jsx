@@ -1,10 +1,11 @@
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
 import { bool, func, object } from 'prop-types'
 
 import CircleArrowRightWhite from '../../assets/icons/circle-arrow-right-white.svg'
 import FavoriteOutlined from '../../assets/icons/favorite-outline-pink.svg'
 import FavoriteFilled from '../../assets/icons/favorite-filled-pink.svg'
 import './universityCard.scss'
-import { useState } from 'react'
 
 const Heart = ({ isFavorite, onClick }) => {
   const handleOnClick = (e) => {
@@ -33,8 +34,12 @@ const UniversityCard = (props) => {
   } = props
 
   const [favoriteState, setFavoriteState] = useState(isFavorite)
+  const isUserAuthenticated = useSelector((state) => state.auth.isUserAuthenticated)
 
   const handleOnFavoriteClick = () => {
+    // user is not logged in, do not perform onClick action
+    if (!isUserAuthenticated) return alert('Please login first')
+
     onFavoriteClick(university, isFavorite)
     setFavoriteState((prevState) => !prevState)
   }

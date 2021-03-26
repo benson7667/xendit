@@ -11,7 +11,7 @@ export const getAllFavoriteEpic = (action$, state$) =>
       const uid = state$.value.auth?.userInfo?.uid || ''
       const token = state$.value.auth?.userInfo?.token || ''
 
-      if (!uid || !token) return from([])
+      if (!uid || !token) return of(Actions.GET_ALL_FAVORITE_RESPONSE([], null))
 
       const getAllFavoriteFunc = firestore()
         .collection('favorites')
