@@ -25,4 +25,6 @@ const userLogout = () => firebaseApp.auth().signOut()
 // firestore
 const firestore = () => firebaseApp.firestore()
 
-export { fireAuth, firestore, userRegister, userLogin, userLogout }
+const getServerTime = () => firebase.firestore.FieldValue.serverTimestamp()
+
+export { fireAuth, firestore, getServerTime, userRegister, userLogin, userLogout }
