@@ -47,13 +47,13 @@ const Navbar = () => {
       {isUserAuthenticated && (
         <div className='navbar__auth' onClick={handleLogout}>
           <span className='navbar__auth-name'>{userInfo.email}</span>
-          <img src={LogoutSvg} />
+          <img className='navbar__auth-icon' src={LogoutSvg} />
         </div>
       )}
 
       {!isUserAuthenticated && (
         <div className='navbar__auth'>
-          <Link className='navbar__auth-login' label='Login / Register' to={routesName.LOGIN} />
+          <Link className='navbar__auth-login' label='Login' to={routesName.LOGIN} />
         </div>
       )}
     </div>
