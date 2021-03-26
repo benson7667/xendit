@@ -38,7 +38,7 @@ const UniversityCard = (props) => {
 
   const handleOnFavoriteClick = () => {
     // user is not logged in, do not perform onClick action
-    if (!isUserAuthenticated) return alert('Please login first')
+    if (!isUserAuthenticated) return alert('Please login before add university to favorite list')
 
     onFavoriteClick(university, isFavorite)
     setFavoriteState((prevState) => !prevState)
