@@ -14,6 +14,13 @@ const { Actions, Constants } = EasyActions({
   ADD_FAVORITE_RESPONSE(type, payload, error) {
     return { type, payload, error }
   },
+
+  REMOVE_FAVORITE_REQUEST(type, payload) {
+    return { type, payload }
+  },
+  REMOVE_FAVORITE_RESPONSE(type, payload, error) {
+    return { type, payload, error }
+  },
 })
 
 export { Actions, Constants as ActionTypes }

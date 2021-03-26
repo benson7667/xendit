@@ -9,6 +9,10 @@ const defaultState = {
   // ADD
   isAddingFavorite: false,
   addFavoriteError: null,
+
+  // REMOVE
+  isRemovingFavorite: false,
+  removeFavoriteError: null,
 }
 
 const userReducer = (state = defaultState, action) => {
@@ -39,7 +43,23 @@ const userReducer = (state = defaultState, action) => {
     case ActionTypes.ADD_FAVORITE_RESPONSE:
       return {
         ...state,
+        isAddingFavorite: false,
         addFavoriteError: action.error,
+      }
+
+    // REMOVE
+    case ActionTypes.REMOVE_FAVORITE_REQUEST:
+      return {
+        ...state,
+        isRemovingFavorite: true,
+        removeFavoriteError: null,
+      }
+
+    case ActionTypes.REMOVE_FAVORITE_RESPONSE:
+      return {
+        ...state,
+        isRemovingFavorite: false,
+        removeFavoriteError: action.error,
       }
 
     default:

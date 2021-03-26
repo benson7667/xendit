@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BackButton, Container, Navbar, UniversityCard } from '../../components'
 import { parseQueryString } from '../../utils/url'
-import { Actions } from '../../actions/search'
+import { Actions as SearchAction } from '../../actions/search'
+import { Actions as FavoriteAction } from '../../actions/favorite'
 import './styles.scss'
 
 const SearchResult = (props) => {
@@ -18,8 +19,18 @@ const SearchResult = (props) => {
 
   useEffect(() => {
     const query = parseQueryString(location)
-    dispatch(Actions.GET_SEARCH_REQUEST({ ...query }))
+    dispatch(SearchAction.GET_SEARCH_REQUEST({ ...query }))
   }, [])
+
+  const handleOnFavoriteClick = (university, isFavorite) => {
+    // add item to favorite
+    if (!isFavorite) {
+      return dispatch(FavoriteAction.ADD_FAVORITE_REQUEST(university))
+    }
+
+    // remove item from favorite
+    dispatch(FavoriteAction.REMOVE_FAVORITE_REQUEST(university))
+  }
 
   const renderContent = () => {
     if (error) {
@@ -37,7 +48,7 @@ const SearchResult = (props) => {
     return (
       <div className='search-result__grid'>
         {results.map((item, index) => (
-          <UniversityCard key={index} university={item} />
+          <UniversityCard key={index} onFavoriteClick={handleOnFavoriteClick} university={item} />
         ))}
       </div>
     )

@@ -14,6 +14,15 @@ const Favourites = () => {
     dispatch(Actions.GET_ALL_FAVORITE_REQUEST())
   }, [])
 
+  const handleOnFavoriteClick = (university, isFavorite) => {
+    // in favorite page, 'isFavorite' is alwats true
+    if (isFavorite) {
+      dispatch(Actions.REMOVE_FAVORITE_REQUEST(university))
+      const newList = favoriteList.filter((item) => item.name !== university.name)
+      dispatch(Actions.GET_ALL_FAVORITE_RESPONSE(newList, null))
+    }
+  }
+
   const renderContent = () => {
     if (isLoading) return <h1>Loading...</h1>
 
@@ -22,8 +31,8 @@ const Favourites = () => {
     if (!isLoading && favoriteList.length)
       return (
         <div className='container__grid'>
-          {favoriteList.map((item, index) => (
-            <UniversityCard key={index} university={item} />
+          {favoriteList.map((item) => (
+            <UniversityCard key={item.name} onFavoriteClick={handleOnFavoriteClick} university={item} />
           ))}
         </div>
       )
@@ -32,7 +41,7 @@ const Favourites = () => {
   return (
     <Container>
       <Navbar />
-      <div className='container__grid'>{renderContent()}</div>
+      {renderContent()}
     </Container>
   )
 }

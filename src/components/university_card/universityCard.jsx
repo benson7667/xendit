@@ -1,12 +1,10 @@
-import { useDispatch } from 'react-redux'
 import { bool, func, object } from 'prop-types'
-
-import { Actions } from '../../actions/favorite'
 
 import CircleArrowRightWhite from '../../assets/icons/circle-arrow-right-white.svg'
 import FavoriteOutlined from '../../assets/icons/favorite-outline-pink.svg'
 import FavoriteFilled from '../../assets/icons/favorite-filled-pink.svg'
 import './universityCard.scss'
+import { useState } from 'react'
 
 const Heart = ({ isFavorite, onClick }) => {
   const handleOnClick = (e) => {
@@ -29,12 +27,17 @@ Heart.defaultProps = {
 
 const UniversityCard = (props) => {
   const {
-    university: { name, country, web_pages },
+    university: { name, country, web_pages, isFavorite },
     university,
+    onFavoriteClick,
   } = props
-  const dispatch = useDispatch()
 
-  const handleOnFavorite = (university) => () => dispatch(Actions.ADD_FAVORITE_REQUEST(university))
+  const [favoriteState, setFavoriteState] = useState(isFavorite)
+
+  const handleOnFavoriteClick = () => {
+    onFavoriteClick(university, isFavorite)
+    setFavoriteState((prevState) => !prevState)
+  }
 
   // we assign onClick function in order for stopPropagation work properly
   const handleCardClick = (web_pages) => () => window.open(web_pages[0], '_blank')
@@ -49,7 +52,7 @@ const UniversityCard = (props) => {
           </div>
 
           <div className='unicard__body-right'>
-            <Heart isFavorite onClick={handleOnFavorite(university)} />
+            <Heart isFavorite={favoriteState} onClick={handleOnFavoriteClick} />
           </div>
         </div>
         <div className='unicard__footer'>
@@ -62,6 +65,7 @@ const UniversityCard = (props) => {
 }
 
 UniversityCard.propTypes = {
+  onFavoriteClick: func.isRequired,
   university: object.isRequired,
 }
 
