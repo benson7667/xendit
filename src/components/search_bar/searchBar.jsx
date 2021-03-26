@@ -18,12 +18,7 @@ const SearchBar = (props) => {
       <div className='searchbar__container'>
         <h1 className='searchbar__title'>UNIVERSITY DOMAIN</h1>
         <div className='searchbar__wrapper'>
-          <input
-            className='searchbar__input'
-            onChange={handleOnChange}
-            placeholder='Search university...'
-            value={value}
-          />
+          <input className='searchbar__input' onChange={handleOnChange} placeholder='eg: singapore' value={value} />
           <button className='searchbar__button' onClick={handleOnSearch}>
             <img className='searchbar__button-icon' src={ArrowRightSvg} />
           </button>

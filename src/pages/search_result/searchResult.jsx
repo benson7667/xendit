@@ -59,6 +59,10 @@ const SearchResult = (props) => {
       <Navbar />
       <BackButton label='Back to search' />
       {renderContent()}
+      <p>
+        Since the apis does not support pagination. Some keyword might return more than 1000 records. We have limit
+        maximum 50 record will render to the screeb
+      </p>
     </Container>
   )
 }

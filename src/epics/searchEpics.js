@@ -17,6 +17,10 @@ export const searchEpic = (action$, state$) =>
           // remove duplicate
           searchResults = uniqBy(searchResults, 'name')
 
+          // since the apis do not have pagination, it will return more than 1000 results sometimes
+          // we manually cut it of by limit to 50 result maximum
+          searchResults = searchResults.slice(0, 50)
+
           // user is not logged in
           if (!uid) {
             const list = searchResults.map((item) => ({ ...item, isFavorite: false }))
